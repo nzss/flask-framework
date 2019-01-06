@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, redirect
 import requests
 import quandl
-#import datetime
-#import dateutil.relativedelta
 from bokeh.embed import components
 from bokeh.plotting import figure
 from bokeh.resources import INLINE
