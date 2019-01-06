@@ -1,0 +1,26 @@
+<!doctype html>
+<title>Milestone Project</title>  <!-- title of webpage, will not show on webpage, but will show on tab-->
+<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style_lulu.css')}}'>
+<div class=page>
+  <h1>Stock Ticker Lookup App</h1>
+  <div class=metanav>
+
+
+    <!-- <form id='userinfoform_lulu' method='post' action='index_lulu' > -->
+    <form action="{{ url_for('handle_data') }}" method="post">
+      <p>
+    Ticker symbol: <input type='text' name='ticker_symbol' />
+      </p>
+    <input type="checkbox" name="closing_price" value="Closing price" checked> Closing price<br>
+    
+    <!-- <input type="checkbox" name="adjusted_closing" value="Car"> Adjusted closing price<br>
+    <input type="checkbox" name="opening price" value="Boat" checked> I have a boat<br><br>
+  -->
+      <p>
+    <input type='submit' value='Submit' />
+      </p>
+    </form>
+
+  </div>
+</div>
+</html>
