@@ -8,6 +8,7 @@ from bokeh.util.string import encode_utf8
 
 
 
+
 app = Flask(__name__)
 
 @app.route('/') # homepage
@@ -20,10 +21,6 @@ def handle_data():
     closing_price = request.form['closing_price']
     
     data = get_price(ticker_symbol)
-    
-    #plot = make_chart(data)
-
-    #script, div = components(plot)
     
     html = make_chart(data)
     return encode_utf8(html)
@@ -42,8 +39,11 @@ def get_price(symbol):
 
 
 def make_chart(data):
-	fig = figure(plot_width=600, plot_height=600)
-	fig.line(x = data['date'], y = data['close'])
+	fig = figure(plot_width=600, plot_height=600, x_axis_label='date', \
+             y_axis_label='closing price', \
+             title = 'stock closing prices vs. date', \
+             x_axis_type="datetime"))
+	fig.line(x = data['date'].dt.to_pydatetime(), y = data['close'])
 
 	js_resources = INLINE.render_js()
 	css_resources = INLINE.render_css()
