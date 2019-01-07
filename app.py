@@ -42,7 +42,7 @@ def make_chart(data):
 	fig = figure(plot_width=600, plot_height=600, x_axis_label='date', \
              y_axis_label='closing price', \
              title = 'stock closing prices vs. date', \
-             x_axis_type="datetime"))
+             x_axis_type="datetime")
 	fig.line(x = data['date'].dt.to_pydatetime(), y = data['close'])
 
 	js_resources = INLINE.render_js()
