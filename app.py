@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/') # homepage
 def index():
-  return render_template('index2.html')
+  return render_template('index.html')
 
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
